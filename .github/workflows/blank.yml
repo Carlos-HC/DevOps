@@ -34,3 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Build Docker image
+        run: docker build -t my-image:latest .
+
+      - name: Run Docker container
+        run: docker run --rm my-image:latest
