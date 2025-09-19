@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+e# This is a basic workflow to help you get started with Actions
 
 name: CI
 
@@ -7,10 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
-    branches: ["derin"]
   pull_request:
     branches: [ "main" ]
-    branches: ["derin"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
