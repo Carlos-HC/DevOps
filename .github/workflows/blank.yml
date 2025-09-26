@@ -38,4 +38,8 @@ jobs:
         run: |
           docker run --rm --user $(id -u):$(id -g) -v "$PWD":/workspace -w /workspace gradle:8.9-jdk17 gradle clean build
 
+      - name: Docker image
+      - run: docker build -t DevOops:latest .
 
+      - name: Run container
+      - run: docker run DevOops:latest
