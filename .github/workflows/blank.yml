@@ -36,5 +36,5 @@ jobs:
           echo test, and deploy your project.
       - name: Run Docker Hello World
         run: |
-           docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project gradle gradle <task>
+           docker run --rm -u "$(id -u):$(id -g)" -e "GRADE_USER_HOME=/tmp" -v "$PWD":/home/gradle/project -w /home/gradle/project gradle gradle build
 
