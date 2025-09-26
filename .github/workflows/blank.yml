@@ -34,7 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Run Docker Hello World
-        run: |
-           docker run --rm -u "$(id -u):$(id -g)" -e "GRADLE_USER_HOME=/tmp" -v "$PWD":/home/gradle/project -w /home/gradle/project gradle:9-jdk17-corretto gradle build
+      - name: Run Dockerized Gradle Build
+        run: ｜
+          docker run --rm --user $(id -u):$(id -g) -v "$PWD":/workspace -w /workspace gradle:8.9-jdk17 gradle clean build
+
 
