@@ -47,7 +47,7 @@ jobs:
           docker rm little_devoop || true
 
       - name: Run container
-        run: docker run -d --name little_devoop --network host devoops:latest
+        run: docker run -d --name little_devoop -p 8080:8080 --network host devoops:latest
 
 
     #  - name: Stop container
