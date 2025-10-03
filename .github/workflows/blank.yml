@@ -55,6 +55,6 @@ jobs:
       - name: Cleanup container
         run: |
           docker stop little_devoop || true
-          docker rm little_devoop || true
+        # docker rm little_devoop || true
 
 
