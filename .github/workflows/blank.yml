@@ -56,7 +56,7 @@ jobs:
           EXPECTED_VALUE="It works!"
           ACTUAL_VALUE=$(curl -S "http://localhost:8080/endpoint")
 
-          if ["$EXPECTED_VALUE" = "$ACTUAL_VALUE"]; then
+          if [ "$EXPECTED_VALUE" = "$ACTUAL_VALUE" ]; then
             exit 0
           else
             exit 1
