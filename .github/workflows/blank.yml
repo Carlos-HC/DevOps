@@ -54,7 +54,7 @@ jobs:
         run: |
           sleep 10
           EXPECTED_VALUE="It works!"
-          ACTUAL_VALUE=$(curl -S "https://localhost:8080/endpoint")
+          ACTUAL_VALUE=$(curl -S "http://localhost:8080/endpoint")
 
           if ["$EXPECTED_VALUE = $ACTUAL_VALUE"]; then
             return exit 0
