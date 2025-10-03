@@ -16,6 +16,6 @@ public class DevOopsApplication {
 class TestController{
 	@getMapping("/endpoint")
 	public String testEndpoint(){
-		return "It works!"
+		return "It works!";
 	}
 }
