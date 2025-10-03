@@ -48,6 +48,7 @@ jobs:
 
       - name: Run container
         run: docker run -d --name little_devoop -p 8080:8080 --restart always devoops:latest
+        
 
     #  - name: Stop container
     #    run: docker stop little_devoop
