@@ -52,6 +52,7 @@ jobs:
 
       - name: String comparison 
         run: |
+          sleep 10
           EXPECTED_VALUE="It works!"
           ACTUAL_VALUE=$(curl -S "https://localhost:8080/endpoint")
 
