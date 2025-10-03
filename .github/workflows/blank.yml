@@ -41,5 +41,20 @@ jobs:
       - name: Docker image
         run: docker image build -t devoops:latest .
 
+      - name: Preventive Cleanup
+        run: |
+          docker stop little_devoop || true
+          docker rm little_devoop || true
+
       - name: Run container
-        run: docker run -d devoops:latest
+        run: docker run -d --name little_devoop devoops:latest -p 8080:8080 --restart always
+
+      - name: Stop container
+        run: docker stop little_devoop
+
+      - name: Cleanup container
+        run: |
+          docker stop little_devoop || true
+          docker rm little_devoop || true
+
+
