@@ -57,5 +57,18 @@ jobs:
       #  run: |
        #   docker stop little_devoop || true
         # docker rm little_devoop || true
-
+      - name: Preventive Cleanup (unify to little_devoop)
+        run: |
+          docker stop team7-app || true
+          docker rm   team7-app || true
+          docker stop little_devoop || true
+          docker rm   little_devoop || true
+          
+      - name: Run container (single name)
+        run: |
+          docker run -d \
+            --name little_devoop \
+            -p 8080:8080 \
+            --restart always \
+            devoops:latest
 
