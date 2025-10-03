@@ -52,8 +52,8 @@ jobs:
 
       - name: String comparison 
         run: |
-          EXPECTED_VALUE= "It works!"
-          ACTUAL_VALUE= $(curl -s https.(/localhost:8080/endpoint))
+          $EXPECTED_VALUE= "It works!"
+          $ACTUAL_VALUE= $(curl -s https.(/localhost:8080/endpoint))
 
           if ["$EXPECTED_VALUE = $ACTUAL_VALUE"]; then
             return exit 0
