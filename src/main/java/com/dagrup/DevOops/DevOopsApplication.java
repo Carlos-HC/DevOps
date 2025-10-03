@@ -11,3 +11,11 @@ public class DevOopsApplication {
 	}
 
 }
+
+@RestController
+class TestController{
+	@getMapping("/endpoint")
+	public String testEndpoint(){
+		return "It works!"
+	}
+}
