@@ -74,17 +74,11 @@ jobs:
           YOUR_REPO: ${{ github.workspace }}
 
         run: |
-          docker run \
-            --rm \
-            --user "$(id -u):$(id -g)" \
-            -e SONAR_HOST_URL="http://10.0.40.193:9000" \
-            -e SONAR_TOKEN="sqp_5ab942c1daa7e17ac6cde8dac8c0893bfd7f75e1" \
-            -v "$PWD:/usr/src" \
-            sonarsource/sonar-scanner-cli \
+          sonar-scanner \
             -Dsonar.projectKey=team7 \
-            -Dsonar.projectName=DevOps \
             -Dsonar.sources=. \
-            -Dsonar.exclusions="**/.gradle/**,**/build/**"
+            -Dsonar.host.url=http://10.0.40.193:9000 \
+            -Dsonar.token=sqp_61f3d67a3b8b9c44989438d2e486a45c20b8401a
 
     #  - name: Stop container
     #    run: docker stop little_devoop
