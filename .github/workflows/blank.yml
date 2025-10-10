@@ -82,6 +82,7 @@ jobs:
             sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=team7 \
             -Dsonar.sources=. \
+            -Dsonar.exclusions=**/.gradle/**,**/build/**
 
 
     #  - name: Stop container
