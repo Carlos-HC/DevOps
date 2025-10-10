@@ -81,7 +81,13 @@ jobs:
             -v "$PWD:/usr/src" \
             sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=team7 \
+            -Dsonar.projectName=DevOps \
             -Dsonar.sources=. \
+            -Dsonar.exclusions=**/.gradle/**,**/build/**,**/.git/** \
+            -Dsonar.java.binaries=build/classes/java/main \
+            -Dsonar.junit.reportPaths=build/test-results/test \
+            -Dsonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/test/jacocoTestReport.xml
+
 
 
     #  - name: Stop container
