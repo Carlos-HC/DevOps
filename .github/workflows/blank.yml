@@ -72,11 +72,16 @@ jobs:
         env:
           SONAR_HOST_URL: "http://10.0.40.193:9000"
         run: |
-          sonar-scanner \
+          docker run \
+            --rm \
+            -e SONAR_HOST_URL="http://10.0.40.193:9000" \
+            -e SONAR_TOKEN="sqp_61f3d67a3b8b9c44989438d2e486a45c20b8401a" \
+            -v "$PWD:/usr/src" \
+            sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=team7 \
+            -Dsonar.projectName=DevOps \
             -Dsonar.sources=. \
-            -Dsonar.host.url=http://10.0.40.193:9000 \
-            -Dsonar.token=sqp_61f3d67a3b8b9c44989438d2e486a45c20b8401a
+            -Dsonar.exclusions="**/.gradle/**,**/build/**"
 
     #  - name: Stop container
     #    run: docker stop little_devoop
