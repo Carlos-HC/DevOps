@@ -83,7 +83,7 @@ jobs:
               -Dsonar.projectName=DevOps \
               -Dsonar.sources=. \
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
-              -Dsonar.java.binaries="build/classes/java/main"
+              -Dsonar.java.binaries="build/classes"
 
     #  - name: Stop container
     #    run: docker stop little_devoop
