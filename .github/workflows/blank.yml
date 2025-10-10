@@ -37,13 +37,11 @@ jobs:
       - name: Run Dockerized Gradle Build
         run: |
           docker run --rm --user $(id -u):$(id -g) -v "$PWD":/workspace -w /workspace gradle:8.9-jdk17 gradle clean build
-
       - name: Preventive Cleanup
         run: |
           docker stop little_devoop || true
           docker rm little_devoop || true
           docker rmi devoops:latest || true
-
       - name: Docker image
         run: docker image build -t devoops:latest .
 
@@ -55,13 +53,11 @@ jobs:
           sleep 10
           EXPECTED_VALUE="It works!"
           ACTUAL_VALUE=$(curl -S "http://localhost:8080/endpoint")
-
           if [ "$EXPECTED_VALUE" = "$ACTUAL_VALUE" ]; then
             exit 0
           else
             exit 1
           fi
-
       - name: Docker Tag
         run: docker tag devoops:latest 10.0.40.193:5000/team7-devoops:latest
 
@@ -84,7 +80,7 @@ jobs:
               -Dsonar.sources=src \
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
               -Dsonar.java.binaries="build/classes"
-
+              
     #  - name: Stop container
     #    run: docker stop little_devoop
 
@@ -93,5 +89,4 @@ jobs:
        #   docker stop little_devoop || true
         #  docker rm little_devoop || true
         #  docker rmi devoops:latest || true
-
 
