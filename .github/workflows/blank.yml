@@ -80,7 +80,7 @@ jobs:
             -e SONAR_TOKEN="sqp_5ab942c1daa7e17ac6cde8dac8c0893bfd7f75e1" \
             -v "$PWD:/usr/src" \
             sonarsource/sonar-scanner-cli \
-            -Dsonar.projectKey=team7 \
+            -Dsonar.projectKey=team7 \ 
             -Dsonar.projectName=DevOps \
             -Dsonar.sources=. \
             -Dsonar.exclusions=**/.gradle/**,**/build/**
