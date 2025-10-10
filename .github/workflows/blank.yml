@@ -70,9 +70,7 @@ jobs:
 
       - name: SonarQube Scan
         env:
-          SONARQUBE_URL: localhost:9000
-          YOUR_REPO: ${{ github.workspace }}
-
+          SONAR_HOST_URL: "http://10.0.40.193:9000"
         run: |
           sonar-scanner \
             -Dsonar.projectKey=team7 \
