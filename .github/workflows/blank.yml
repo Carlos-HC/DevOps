@@ -81,6 +81,7 @@ jobs:
             -v "$PWD:/usr/src" \
             sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=team7 \
+            -Dsonar.projectName=DevOps \
             -Dsonar.sources=. \
             -Dsonar.exclusions=**/.gradle/**,**/build/**
 
