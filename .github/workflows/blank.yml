@@ -80,7 +80,7 @@ jobs:
             -w /usr/src \
             sonarsource/sonar-scanner-cli \
               -Dsonar.projectKey=team7 \
-              -Dsonar.projectName=DevOps \
+              -Dsonar.projectName=team7 \
               -Dsonar.sources=src \
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
               -Dsonar.java.binaries="build/classes"
