@@ -92,19 +92,19 @@ jobs:
           docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/docs squidfunk/mkdocs-material build
 
       - name: Build Nginx Docs Image
-        run: docker build -t team7-docs:latest -f docs/dockerfile .
+        run: docker build -t docs:latest -f docs/dockerfile .
 
       - name: Run Nginx Docs Container
         run: |
           docker stop little_docs || true
           docker rm little_docs || true
-          docker run -d --name little_docs -p 8001:80 team7-docs:latest
+          docker run -d --name little_docs -p 8001:80 docs:latest
 
       - name: Nginx Tag
-        run: docker tag team7-docs:latest 10.0.40.193:5000/team7-team7-docs:latest
+        run: docker tag docs:latest 10.0.40.193:5000/team7-docs:latest
 
       - name: Nginx Push
-        run: docker push 10.0.40.193:5000/team7-team7-docs:latest
+        run: docker push 10.0.40.193:5000/team7-docs:latest
 
 
               
