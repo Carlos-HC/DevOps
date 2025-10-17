@@ -81,8 +81,7 @@ jobs:
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
               -Dsonar.java.binaries="build/classes"
 
-          - name: Deploy MkDocs Documentation to GitHub Pages
-      
+      - name: Deploy MkDocs Documentation to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
