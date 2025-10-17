@@ -38,7 +38,10 @@ jobs:
         run: docker build -t team7:latest -f docs/dockerfile .
 
       - name: Run Nginx Docs Container
-        run: docker run -d --name little_docs -p 8001:80 team7:latest
+        run: |
+          docker stop little_docs || true
+          docker rm little_docs || true
+          docker run -d --name little_docs -p 8001:80 team7:latest
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
