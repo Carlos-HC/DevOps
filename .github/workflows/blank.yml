@@ -30,6 +30,16 @@ jobs:
 
       - uses: actions/checkout@v4
 
+      - name: Build mkdocs
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/docs squidfunk/mkdocs-material build
+
+      - name: Build Nginx Docs Image
+        run: docker build -t team7:latest -f docs/dockerfile .
+
+      - name: Run Nginx Docs Container
+        run: docker run -d --name little_docs -p 8001:80 team7:latest
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -86,15 +96,7 @@ jobs:
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
               -Dsonar.java.binaries="build/classes"
 
-      - name: Build mkdocs
-        run: |
-          docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/docs squidfunk/mkdocs-material build
-
-      - name: Build Nginx Docs Image
-        run: docker build -t team7:latest -f docs/dockerfile .
-
-      - name: Run Nginx Docs Container
-        run: docker run -d --name little_docs -p 8000:80 team7:latest
+      
 
 
 
