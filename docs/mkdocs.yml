@@ -1,0 +1,9 @@
+site_name: Mi Documentación
+nav:
+  - Inicio: index.md
+  - Sobre: about.md
+
+theme:
+  name: 'material'
+
+
