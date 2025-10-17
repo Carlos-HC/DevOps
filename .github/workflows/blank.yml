@@ -91,10 +91,10 @@ jobs:
           docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/docs squidfunk/mkdocs-material build
 
       - name: Build Nginx Docs Image
-        run: docker build -t team7:latest -f dockerfile.docs .
+        run: docker build -t team7:latest -f docs/dockerfile.docs .
 
       - name: Run Nginx Docs Container
-        run: docker run -d --name little_docs -p 8080:80 team7:latest
+        run: docker run -d --name little_docs -p 8000:80 team7:latest
 
 
 
