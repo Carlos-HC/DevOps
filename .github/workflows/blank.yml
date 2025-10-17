@@ -26,9 +26,8 @@ jobs:
 
       - name: Force Clean Repository Directory (Fix Permissions)
         run: |
-          sudo rm -rf ${{ github.workspace }}/* || true
-          sudo rm -rf ${{ github.workspace }}/.* || true
-          
+          docker run --rm -v "$PWD":/project bash:latest chown --recursive $(id -u):$(id -g) /project
+
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
