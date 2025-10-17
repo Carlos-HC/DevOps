@@ -85,6 +85,17 @@ jobs:
               -Dsonar.sources=src \
               -Dsonar.exclusions="**/.gradle/**,**/build/**,**/.git/**" \
               -Dsonar.java.binaries="build/classes"
+
+      - name: Build mkdocs
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/docs squidfunk/mkdocs-material build
+
+      - name: Start Development Server
+        run: |
+          docker run --rm -it -u $(id -u):$(id -g) -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+
+
+
               
     #  - name: Stop container
     #    run: docker stop little_devoop
