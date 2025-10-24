@@ -114,7 +114,7 @@ jobs:
           -v ${PWD}:/docs \
           -w /docs \
           pandoc/latex:latest \
-          README.md about.md -o site/documentation.pdf
+          README.md docs/about.md -o site/documentation.pdf
 
 
 
