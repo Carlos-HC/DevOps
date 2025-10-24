@@ -116,6 +116,12 @@ jobs:
       - name: Nginx Push
         run: docker push 10.0.40.193:5000/team7-docs:latest
       
+      - name: Check PDF exists
+        run: |
+          echo "Checking if PDF was created..."
+          ls -lh site/
+
+      
       
 
 
