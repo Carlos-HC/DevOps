@@ -105,6 +105,17 @@ jobs:
 
       - name: Nginx Push
         run: docker push 10.0.40.193:5000/team7-docs:latest
+      
+      - name: Build PDF with Pandoc
+        run: |
+          mkdir -p site
+          docker run --rm \
+          -u $(id -u):$(id -g) \
+          -v ${PWD}:/docs \
+          -w /docs \
+          pandoc/latex:latest \
+          README.md about.md -o site/documentation.pdf
+
 
 
               
