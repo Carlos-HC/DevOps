@@ -135,7 +135,7 @@ jobs:
             docker run -d --name team7_spring --restart always -p 1871:8080 10.0.40.193:5000/team7-devoops:latest
             docker stop team7_docs || true
             docker rm team7_docs || true
-            docker run -d --name team7_docs --restart always -p 1872:80 docker run -d --restart always -p 1872:80 10.0.40.193:5000/team7-docs:latest
+            docker run -d --name team7_docs --restart always -p 1872:80 10.0.40.193:5000/team7-docs:latest
             '
           rm -f $path
           
