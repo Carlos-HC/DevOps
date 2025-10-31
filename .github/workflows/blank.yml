@@ -124,7 +124,7 @@ jobs:
 
       - name: Deployment
         env: 
-          secret: $${{ secrets.LITTLE_DEVOOP_SECRETS }}
+          secret: ${{ secrets.LITTLE_DEVOOP_SECRETS }}
           path: /tmp/key.txt
         run: |
           echo "$secret" > $path
