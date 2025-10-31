@@ -57,7 +57,7 @@ jobs:
         run: |
           docker stop team7_spring || true
           docker rm team7_spring || true
-          docker run -d --name team7_spring --restart always -p 1871:8080 devoops:latest
+      #    docker run -d --name team7_spring --restart always -p 1871:8080 devoops:latest
 
       - name: String comparison 
         run: |
@@ -120,7 +120,7 @@ jobs:
         run : |
           docker stop team7_docs || true
           docker rm team7_docs || true
-          docker run -d --name team7_docs --restart always -p 1872:80 docs:latest
+      #    docker run -d --name team7_docs --restart always -p 1872:80 docs:latest
 
       - name: Nginx Tag
         run: docker tag docs:latest 10.0.40.193:5000/team7-docs:latest
