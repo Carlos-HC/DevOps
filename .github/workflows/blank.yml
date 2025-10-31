@@ -53,6 +53,9 @@ jobs:
       - name: Run container
         run: docker run -d --name little_devoop -p 8080:8080 --restart unless-stopped --network host devoops:latest
 
+      - name: Production container
+        run: docker run -d --name little_devoop --restart always -p 1871:8080 devoops:latest
+
       - name: String comparison 
         run: |
           sleep 10
@@ -109,6 +112,9 @@ jobs:
           docker stop little_docs || true
           docker rm little_docs || true
           docker run -d --name little_docs -p 8001:80 docs:latest
+        
+      - name: Production Nginx
+        run : docker run -d --name little_docs --restart always -p 1872:80 docs:latest
 
       - name: Nginx Tag
         run: docker tag docs:latest 10.0.40.193:5000/team7-docs:latest
@@ -121,7 +127,6 @@ jobs:
           echo "Checking if PDF was created..."
           ls -lh site/
 
-      
       
 
 
