@@ -133,7 +133,24 @@ jobs:
           echo "Checking if PDF was created..."
           ls -lh site/
 
-      
+      - name: Prepare SSH key & known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/team7_ci
+          chmod 600 ~/.ssh/team7_ci
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Production via SSH
+        run: |
+          ssh -i ~/.ssh/team7_ci ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} <<'SSH'
+          set -e
+          docker rm -f team7-app team7-docs || true
+          docker pull 10.0.40.193:5000/team7-devoops:latest
+          docker pull 10.0.40.193:5000/team7-docs:latest
+          docker run -d --name team7-app  --restart unless-stopped -p 1871:8080  10.0.40.193:5000/team7-devoops:latest
+          docker run -d --name team7-docs --restart unless-stopped -p 1872:80    10.0.40.193:5000/team7-docs:latest
+          SSH
+
 
 
               
